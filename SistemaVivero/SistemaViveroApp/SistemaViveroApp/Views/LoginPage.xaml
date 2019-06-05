@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SistemaViveroApp.Views.LoginPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Login">
+    <ContentPage.Content>
+        <ScrollView
+            BindingContext="{Binding Login}">
+            <StackLayout Padding="10,20,10,15">
+            <Label 
+                FontAttributes="Bold"
+                FontSize="Large"
+                HorizontalOptions="Center"
+                Text="Login">
+            </Label>
+            <Image Source="Viverologo.jpg"
+                   WidthRequest="200">
+
+            </Image>
+            <Label
+                FontAttributes="Bold"
+                FontSize="Medium"
+                HorizontalOptions="Start"
+                Text="E-Mail"
+                >
+            </Label>
+            <Entry
+                Keyboard="Email"
+                Placeholder="Ingresa Email"
+                Text="{Binding Email, Mode=TwoWay}">
+            </Entry>
+            <Label
+                FontAttributes="Bold"
+                FontSize="Medium"
+                HorizontalOptions="Start"
+                Text="Contraseña"
+                >
+            </Label>
+            <Entry
+                Placeholder="Ingresa contraseña"
+                IsPassword="True"
+                Text="{Binding Password, Mode=TwoWay}">
+            </Entry>
+
+            <ActivityIndicator 
+                IsRunning="{Binding IsRunning, Mode=TwoWay}"
+                Color="ForestGreen">
+                
+            </ActivityIndicator>
+
+                <Label
+                    Text="Recordar usuario en este dispositivo"
+                    FontAttributes="Italic"
+                    FontSize="Medium"
+                    ></Label>
+            <Switch
+                IsToggled="{Binding IsRemembered, Mode=TwoWay}"
+                HorizontalOptions="Start">
+            </Switch>
+
+            <Button 
+                Text="Entrar" 
+                BackgroundColor="ForestGreen" 
+                TextColor="White" 
+                BorderRadius="20"
+                Command="{Binding LoginCommand}"
+                IsEnabled="{Binding LoginEnabled}">
+
+            </Button>
+            <Button 
+                Text="Registrarse" 
+                BackgroundColor="GreenYellow" 
+                TextColor="White" 
+                Command="{Binding RegisterCommand}"
+                BorderRadius="20" >
+            </Button>
+
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
