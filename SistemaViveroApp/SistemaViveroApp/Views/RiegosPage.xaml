@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SistemaViveroApp.Views.RiegosPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Riegos">
+    <ContentPage.ToolbarItems>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout
+            Padding="10,20,10,15"
+            BindingContext="{Binding Riegos}">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    
+                    Text="{Binding NamePage}">
+                    
+                </Label>
+
+
+                <ListView
+                    SeparatorVisibility="None"
+                    HeightRequest="50"
+                    IsRefreshing="{Binding IsRefreshing}"
+                    IsPullToRefreshEnabled="True"
+                    RefreshCommand="{Binding RefreshCommand}"
+                    HasUnevenRows="True"
+                    ItemsSource="{Binding ListaRiegos}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem
+                                    Text="Eliminar"
+                                    Command="{Binding DeleteMuroCommand}"
+                                    IsDestructive="True"
+                                    >
+
+                                    </MenuItem>
+                                </ViewCell.ContextActions>
+                                <Frame
+                                
+                                CornerRadius="20"
+                                HasShadow="True"
+                                Margin="5">
+                                    <Grid>
+                                        
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            
+                                        </Grid.ColumnDefinitions>
+                                        
+                                        <Label
+                                        Grid.Column="1"
+                                        FontAttributes="Bold"
+                                        FontSize="Medium"
+                                        Text="{Binding Day}"
+                                        VerticalOptions="Center">
+                                        </Label>
+                                        <Label
+                                        Grid.Column="1"
+                                            Grid.Row="1"
+                                        FontAttributes="Bold"
+                                        FontSize="Small"
+                                            Text="{Binding Description}"
+                                            />
+                                        
+                                        <Image
+                                        Grid.Column="2"
+                                        VerticalOptions="Center"
+                                         Source="{Binding Icon}">
+                                        </Image>
+                                        <Label
+                                        Grid.Column="2"
+                                            Grid.Row="1"
+                                        FontAttributes="Bold"
+                                        FontSize="Small"
+                                            Text="{Binding Temperature}"
+                                            />
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
+
+
+                
+
+                <AbsoluteLayout>
+                    <ImageButton
+                    Source="ic_shortcut_invert_colors" 
+                    BackgroundColor="Transparent"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"  
+                    AbsoluteLayout.LayoutBounds=".50,.70,80,80" 
+                    Command="{Binding GoToAddRiegoCommand}"
+                         />
+                </AbsoluteLayout>
+            
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

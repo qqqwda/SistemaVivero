@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SistemaViveroApp.Views.AddMuroPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Agregar nuevo Muro">
+    <ContentPage.Content>
+        <ScrollView
+            BindingContext="{Binding AddMuro}">
+
+            <StackLayout
+                Padding="10,20,10,15">
+                <Label
+                FontAttributes="Bold"
+                FontSize="Default"
+                Text="Nombre del Muro:"
+                HorizontalOptions="CenterAndExpand"
+                >
+                </Label>
+                <Entry
+                Placeholder="Ingresa nombre del Muro"
+                Text="{Binding NombreMuro, Mode=TwoWay}">
+                </Entry>
+
+                <Label
+                HorizontalOptions="CenterAndExpand"
+                FontAttributes="Bold"
+                FontSize="Default"
+                Text="Pais:"
+                >
+                </Label>
+
+                <Entry
+                    IsEnabled="False"
+                Placeholder="Ingresa Lugar"
+                Text="{Binding Pais, Mode=TwoWay}">
+                </Entry>
+
+                <Label
+                HorizontalOptions="CenterAndExpand"
+                FontAttributes="Bold"
+                FontSize="Default"
+                Text="Lugar:"
+                >
+                </Label>
+
+                <Entry
+                    IsEnabled="False"
+                Placeholder="Ingresa Lugar"
+                Text="{Binding Lugar, Mode=TwoWay}">
+                </Entry>
+
+                <Label
+                HorizontalOptions="CenterAndExpand"
+                FontAttributes="Bold"
+                FontSize="Default"
+                Text="Coordenadas:"
+                >
+                </Label>
+
+                <Entry
+                    IsEnabled="False"
+                Placeholder="Coordenadas:"
+                Text="{Binding Coordenadas, Mode=TwoWay}">
+                </Entry>
+
+                <Label
+                HorizontalOptions="CenterAndExpand"
+                FontAttributes="Bold"
+                FontSize="Default"
+                Text="Descripción:"
+                >
+                </Label>
+
+                <Entry
+                    IsEnabled="False"
+                Placeholder="Descripción"
+                Text="{Binding Descripcion, Mode=TwoWay}">
+                </Entry>
+
+                <Image
+                    Source="{Binding Imagen, Mode=TwoWay}"
+                    WidthRequest="100"
+                    >
+                </Image>
+
+                <ActivityIndicator 
+                IsRunning="{Binding IsRunning, Mode=TwoWay}"
+                Color="ForestGreen">
+
+                </ActivityIndicator>
+
+                <Button
+                Text="Agregar" 
+                BackgroundColor="ForestGreen" 
+                TextColor="White" 
+                BorderRadius="20"
+                Command="{Binding AgregarMuroCommand}">
+                </Button>
+
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SistemaViveroApp.Views.MurosPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Tus Muros">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Icon="ic_action_add_circle_outline"
+            Command="{Binding AddMuroCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+    
+    <StackLayout BindingContext="{Binding Muros}"
+                 Padding="10,20,10,15">
+            <SearchBar
+                HeightRequest="30"
+                Placeholder="Buscar"
+                SearchCommand="{Binding SearchCommand}"
+                Text="{Binding Filter}">
+                
+            </SearchBar>
+            <ListView
+                
+                SeparatorVisibility="None"
+                HeightRequest="50"
+                IsRefreshing="{Binding IsRefreshing}"
+                IsPullToRefreshEnabled="True"
+                RefreshCommand="{Binding RefreshCommand}"
+                HasUnevenRows="True"
+                ItemsSource="{Binding Muros}">
+                
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem
+                                    Text="Eliminar"
+                                    Command="{Binding DeleteMuroCommand}"
+                                    IsDestructive="True"
+                                    >
+                                    
+                                </MenuItem>
+                            </ViewCell.ContextActions>
+                            <Frame
+                                
+                                CornerRadius="20"
+                                HasShadow="True"
+                                Margin="5">
+                                <Grid>
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer
+                     Command="{Binding GoToRiegosCommand}"
+                    />
+                                    </Grid.GestureRecognizers>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label
+                                        Grid.Column="1"
+                                        FontAttributes="Bold"
+                                        FontSize="Medium"
+                                        Text="{Binding Name}"
+                                        VerticalOptions="Center">
+                                    </Label>
+                                    <Image
+                                        Grid.Column="2"
+                                        Source="ic_action_arrow_forward_ios"
+                                        VerticalOptions="Center">
+                                    </Image>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        
+            
+
+            
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

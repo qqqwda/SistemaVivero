@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SistemaViveroApp.Views.RegisterPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Registro"
+             >
+    <ContentPage.Content>
+        <ScrollView
+            BindingContext="{Binding Register}">
+            <StackLayout Padding="10,20,10,15">
+
+                <Label 
+                FontAttributes="Bold"
+                FontSize="Large"
+                HorizontalOptions="Center"
+                Text="Register">
+                </Label>
+
+                <Image Source="Viverologo2.jpg"
+                   WidthRequest="200">
+
+                </Image>
+
+                <Label
+                FontAttributes="Bold"
+                FontSize="Default"
+                HorizontalOptions="Start"
+                Text="E-Mail"
+                >
+                </Label>
+                <Entry
+                Keyboard="Email"
+                Placeholder="Ingresa Email"
+                Text="{Binding Email, Mode=TwoWay}">
+                </Entry>
+
+                <Label
+                FontAttributes="Bold"
+                FontSize="Default"
+                HorizontalOptions="Start"
+                Text="Password"
+                >
+                </Label>
+
+                <Entry
+                Placeholder="Ingresa contraseña"
+                IsPassword="True"
+                Text="{Binding Password, Mode=TwoWay}">
+                </Entry>
+
+                <Label
+                FontAttributes="Bold"
+                FontSize="Default"
+                HorizontalOptions="Start"
+                Text="Confirma Password"
+                >
+                </Label>
+                
+                <Entry
+                Placeholder="Confirme contraseña"
+                IsPassword="True"
+                Text="{Binding ConfirmPassword, Mode=TwoWay}"
+                >
+                </Entry>
+
+                <ActivityIndicator 
+                IsRunning="{Binding IsRunning, Mode=TwoWay}"
+                Color="ForestGreen">
+
+                </ActivityIndicator>
+
+                <Button 
+                Text="Registrarse" 
+                BackgroundColor="GreenYellow" 
+                TextColor="White" 
+                Command="{Binding RegisterCommand}"
+                BorderRadius="20" >
+                </Button>
+
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

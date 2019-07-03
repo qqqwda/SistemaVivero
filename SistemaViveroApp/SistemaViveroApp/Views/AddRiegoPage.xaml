@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SistemaViveroApp.Views.AddRiegoPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <ScrollView
+            >
+            <StackLayout
+                BindingContext="{Binding AddRiego}"
+                Padding="10,20,10,15">
+                
+                <Label 
+                FontAttributes="Bold"
+                FontSize="Large"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Text="{Binding NombreMuro}">
+                    
+                </Label>
+                <Label
+                HorizontalOptions="CenterAndExpand"
+                FontAttributes="Bold"
+                FontSize="Default"
+                Text="Info:"
+                >
+                </Label>
+
+                <Label
+                HorizontalOptions="CenterAndExpand"
+                FontAttributes="Bold"
+                FontSize="Default"
+                Text="{Binding Lugar}"
+                >
+                </Label>
+                
+                <Image
+                Source="{Binding Icono}"
+                >
+                </Image>
+                
+                <Label
+                HorizontalOptions="CenterAndExpand"
+                FontAttributes="Bold"
+                FontSize="Default"
+                Text="{Binding Descripcion}"
+                >
+                </Label>
+
+                <Label
+                HorizontalOptions="CenterAndExpand"
+                FontAttributes="Bold"
+                FontSize="Default"
+                Text="{Binding Temperatura}"
+                >
+                </Label>
+
+                <Label
+                HorizontalOptions="CenterAndExpand"
+                FontAttributes="Bold"
+                FontSize="Default"
+                Text="{Binding Pos}"
+                >
+                </Label>
+
+                <Label
+                HorizontalOptions="CenterAndExpand"
+                FontAttributes="Bold"
+                FontSize="Default"
+                Text="{Binding Presion}"
+                >
+                </Label>
+                
+                <Label
+                HorizontalOptions="CenterAndExpand"
+                FontAttributes="Bold"
+                FontSize="Default"
+                Text="{Binding Humedad}"
+                >
+                </Label>
+
+                <ActivityIndicator
+                    IsRunning="{Binding IsRunning}">
+                    
+                </ActivityIndicator>
+
+
+
+
+                <Button
+                Text="Regar" 
+                BackgroundColor="DeepSkyBlue" 
+                TextColor="White" 
+                BorderRadius="20"
+                Command="{Binding AgregarNuevoRiegoCommand}">
+                    
+                </Button>
+                <Label FontSize="Medium" FontAttributes="Bold"  Text="Primavera"/>
+                <Label
+                    Text="Cuando finaliza el invierno conviene que riegues suavemente las plantas y de manera comedida para no encharcarlas. Además, en esta estación se aumentará el número de riegos, siendo lo ideal hacerlo dos veces por semana. Aún así, consulta las especificaciones de tu planta por si dijera algo especial para la primavera. Como todavía no hace mucho calor es conveniente que el agua no esté muy fría, así que si es necesario deja el agua media hora a temperatura ambiente antes de regar. Siempre que puedas, sería estupendo que pudieses recoger agua de la lluvia y almacenarla."
+                    />
+                <Label FontSize="Medium" FontAttributes="Bold" Text="Verano"/>
+                <Label
+                    Text="En esta estación las temperaturas se multiplican y se requiere una mayor cantidad de agua para que las plantas tengan condiciones de humedad favorables y la tierra no se seque."/>
+                <Label FontSize="Medium" FontAttributes="Bold" Text="Otoño"/>
+                <Label
+                    Text ="A partir de aquí la frecuencia de riego debe bajar de manera notable, ya que con las temperaturas más bajas las hojas podrían adquirir un color amarillo por culpa del exceso de humedad entre el frío y una gran cantidad de agua."/>
+                <Label FontSize="Medium" FontAttributes="Bold" Text="Invierno"/>
+                <Label
+                    Text="Invierno: es probable que debas suspender el riego en alguna de las plantas de tu jardín si su especie así lo requiere. Para el resto efectúa un riego moderado y que la tierra se seque completamente antes del siguiente."/>
+
+            </StackLayout>
+        </ScrollView>
+        
+    </ContentPage.Content>
+</ContentPage>
